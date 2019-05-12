@@ -1,0 +1,17 @@
+<h2>Funcionarios</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Salário</th>
+            <th>Bonus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employees of employeeService.employees">
+            <td>{{employees.name}}</td>
+            <td>{{employees.salary}}</td>
+            <td>{{employees.bonus}}</td>  
+          </tr>
+        </tbody>
+      </table>
