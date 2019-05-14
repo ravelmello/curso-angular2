@@ -9,9 +9,13 @@ export class EmployeeDirective {
   appEmployee;
 
   constructor(private element: ElementRef) {
-    const nativeElement: HTMLElement = this.element.nativeElement;
-    const salary = parseFloat(this.appEmployee);
-   }
+
+    setTimeout(() => {
+      const nativeElement: HTMLElement = this.element.nativeElement;
+      const salary = parseFloat(this.appEmployee);
+      nativeElement.style.color = salary > 10000 ? 'green' : 'red';
+    }, 500);
+  }
 
 
 }

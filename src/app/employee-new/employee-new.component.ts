@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
+
+declare const $;
+
 
 @Component({
   selector: 'app-employee-new',
@@ -8,7 +11,7 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class EmployeeNewComponent implements OnInit {
 
-  constructor(public employeeService: EmployeeService) { }
+  constructor(public employeeService: EmployeeService, private element: ElementRef) { }
 
   name = '';
   salary = 0;
@@ -23,7 +26,7 @@ export class EmployeeNewComponent implements OnInit {
       salary: this.salary,
       bonus: this.bonus
     });
-    console.log(event);
+
     console.log(this.employeeService.employees);
   }
 }
