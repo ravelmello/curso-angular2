@@ -13,7 +13,7 @@ export class EmployeeDirective {
     setTimeout(() => {
       const nativeElement: HTMLElement = this.element.nativeElement;
       const salary = parseFloat(this.appEmployee);
-      nativeElement.style.color = salary > 10000 ? 'green' : 'red';
+      nativeElement.style.color = salary < 10000 ? 'red' : 'green';
     }, 500);
   }
 

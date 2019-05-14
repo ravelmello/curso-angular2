@@ -14,14 +14,14 @@ export class EmployeeListComponent implements OnInit {
 
 
   constructor(public employeeService: EmployeeService) {
-    console.log(this.employeeModal);
-    setTimeout(() => {
-      console.log(this.employeeModal);
-      this.employeeModal.showModal();
-    }, 2000);
   }
 
   ngOnInit() {
+  }
+
+
+  open() {
+    this.employeeModal.showModal();
   }
 
 }

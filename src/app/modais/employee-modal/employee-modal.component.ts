@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Employee } from 'src/app/entities/employee';
 
 import * as $ from 'jquery';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-modal',
@@ -10,7 +11,8 @@ import * as $ from 'jquery';
 })
 export class EmployeeModalComponent implements OnInit {
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef,
+    private employeeService: EmployeeService) { }
 
   employee: Employee = {
     name: '',
@@ -27,11 +29,29 @@ export class EmployeeModalComponent implements OnInit {
     $(divModal).show();
   }
 
+  closeModal() {
+    const divModal = this.getDivModal();
+    $(divModal).hide();
+  }
+
 
 
   private getDivModal(): HTMLElement {
     const nativeElement = this.element.nativeElement;
-    return nativeElement.firstChild as HTMLElement;
+    return nativeElement.firstChild.firstChild as HTMLElement;
+  }
+
+
+  private addEmployee($event) {
+    this.employeeService.employees.push({
+      name: this.employee.name,
+      salary: this.employee.salary,
+      bonus: this.employee.bonus
+    });
+
+    this.closeModal();
+
+    console.log(this.employeeService.employees);
   }
 
 

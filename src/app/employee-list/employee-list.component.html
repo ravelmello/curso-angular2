@@ -1,12 +1,17 @@
 <div class="container">
   <div class="row">
     <h2>Funcionarios</h2>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Salário</th>
-          <th>Bonus</th>
+          <td colspan=3>
+            <button class="btn btn-primary" (click)='open()'>Novo empregado</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Salário</th>
+          <th scope="col">Bonus</th>
         </tr>
       </thead>
       <tbody>
