@@ -9,4 +9,8 @@ export class EmployeeService {
   employees: Employee[] = [];
 
   constructor() { }
+
+  public addEmployee(employee: Employee) {
+    this.employees.push(employee);
+  }
 }
