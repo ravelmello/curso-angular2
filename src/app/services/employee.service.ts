@@ -10,7 +10,13 @@ export class EmployeeService {
 
   constructor() { }
 
-  public addEmployee(employee: Employee) {
+  addEmployee(employee: Employee) {
     this.employees.push(employee);
   }
+
+  deleteEmployee(employee: Employee) {
+    const index = this.employees.indexOf(employee);
+    this.employees.splice(index, 1);
+  }
+
 }

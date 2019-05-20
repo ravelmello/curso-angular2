@@ -9,6 +9,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeNewComponent } from './employee-new/employee-new.component';
 import { EmployeeDirective } from './directives/employee.directive';
 import { EmployeeModalComponent } from './modais/employee-modal/employee-modal.component';
+import { EmployeeEditModalComponent } from './modais/employee-edit-modal/employee-edit-modal.component';
+import { EmployeeDeleteModalComponent } from './modais/employee-delete-modal/employee-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { EmployeeModalComponent } from './modais/employee-modal/employee-modal.c
     EmployeeListComponent,
     EmployeeNewComponent,
     EmployeeDirective,
-    EmployeeModalComponent
+    EmployeeModalComponent,
+    EmployeeEditModalComponent,
+    EmployeeDeleteModalComponent
   ],
   imports: [
     BrowserModule,

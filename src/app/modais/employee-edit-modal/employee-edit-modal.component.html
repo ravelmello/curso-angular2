@@ -1,14 +1,14 @@
-<form (submit)='addEmployee($event)'> 
+<form (submit)='editEmployee($event)'> 
   <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Novo Empregado</h5>
+          <h5 class="modal-title">Editar Empregado</h5>
           <button type="button" (click)='closeModal()' class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body"  *ngIf='employee'>
           <!-- FORM -->
           <div class="form">
             <div class="form-group">
@@ -25,9 +25,11 @@
             <input type="text" [(ngModel)]="employee.bonus" [innerHTML]="employee.salary" name="bonus"
               class="form-control">
           </div>
+        </div>
+        <div class="modal-footer">
           <div class="form-group">
-            <button class="btn btn-primary">Incluir</button>
-            <button class="btn btn-danger" type="reset">Cancelar</button>
+            <button class="btn btn-primary">Editar</button>
+            <button class="btn btn-danger" (click)="closeModal()">Cancelar</button>
           </div>
         </div>
       </div>

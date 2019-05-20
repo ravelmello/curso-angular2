@@ -12,6 +12,7 @@
           <th scope="col">Nome</th>
           <th scope="col">Salário</th>
           <th scope="col">Bonus</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,10 @@
           <td>{{employees.name}}</td>
           <td appEmployee="{{ employees.salary }}">{{employees.salary}}</td>
           <td>{{employees.bonus}}</td>
+          <td>
+            <a href="javascript:void(0)" (click)="openEdit(employee)">Editar</a> | 
+            <a href="javascript:void(0)" (click)="openDelete(employee)">Deletar</a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -26,3 +31,5 @@
 </div>
 
 <app-employee-modal (onSubmit)='onNewEmployee($event)'></app-employee-modal>
+<app-employee-edit-modal [employee]='employeeToEdit' (click)='onEditEmployee($event)'></app-employee-edit-modal>
+<app-employee-delete-modal [employee] = 'employeeToDelete' ></app-employee-delete-modal>
