@@ -18,7 +18,7 @@
       <tbody>
         <tr *ngFor="let employees of employeeService.employees">
           <td>{{employees.name}}</td>
-          <td appEmployee="{{ employees.salary }}">{{employees.salary}}</td>
+          <td [appEmployee]="employees.salary">{{employees.salary | currency}}</td>
           <td>{{employees.bonus}}</td>
           <td>
             <a href="javascript:void(0)" (click)="openEdit(employee)">Editar</a> | 

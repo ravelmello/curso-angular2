@@ -11,6 +11,7 @@ import { EmployeeDirective } from './directives/employee.directive';
 import { EmployeeModalComponent } from './modais/employee-modal/employee-modal.component';
 import { EmployeeEditModalComponent } from './modais/employee-edit-modal/employee-edit-modal.component';
 import { EmployeeDeleteModalComponent } from './modais/employee-delete-modal/employee-delete-modal.component';
+import { CurrencyPipe } from './pipes/currency/currency.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmployeeDeleteModalComponent } from './modais/employee-delete-modal/emp
     EmployeeDirective,
     EmployeeModalComponent,
     EmployeeEditModalComponent,
-    EmployeeDeleteModalComponent
+    EmployeeDeleteModalComponent,
+    CurrencyPipe
   ],
   imports: [
     BrowserModule,
