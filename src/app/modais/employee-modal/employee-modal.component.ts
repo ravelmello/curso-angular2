@@ -1,9 +1,10 @@
-import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Employee } from 'src/app/entities/employee';
 
 import * as $ from 'jquery';
 
 import { EmployeeService } from 'src/app/services/employee.service';
+import { GenericModalComponent } from '../generic-modal/generic-modal.component';
 
 
 @Component({
@@ -13,8 +14,10 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeModalComponent implements OnInit {
 
-  constructor(private element: ElementRef,
-    private employeeService: EmployeeService) { }
+  @ViewChild(GenericModalComponent)
+  genericModal: GenericModalComponent;
+
+  constructor(private employeeService: EmployeeService) { }
 
   employee: Employee = {
     name: '',
@@ -30,19 +33,13 @@ export class EmployeeModalComponent implements OnInit {
 
 
   showModal() {
-    const divModal = this.getDivModal();
-    $(divModal).show(); //utilizar esse trecho de código
+    this.genericModal.showModal();
   }
 
   closeModal() {
-    const divModal = this.getDivModal();
-    $(divModal).hide();
+    this.genericModal.closeModal();
   }
 
-  private getDivModal(): HTMLElement {
-    const nativeElement = this.element.nativeElement;
-    return nativeElement.firstChild.firstChild as HTMLElement;
-  }
 
   private addEmployee($event) {
     const copy = Object.assign({}, this.employee);

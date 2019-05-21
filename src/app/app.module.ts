@@ -12,6 +12,7 @@ import { EmployeeModalComponent } from './modais/employee-modal/employee-modal.c
 import { EmployeeEditModalComponent } from './modais/employee-edit-modal/employee-edit-modal.component';
 import { EmployeeDeleteModalComponent } from './modais/employee-delete-modal/employee-delete-modal.component';
 import { CurrencyPipe } from './pipes/currency/currency.pipe';
+import { GenericModalComponent } from './modais/generic-modal/generic-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CurrencyPipe } from './pipes/currency/currency.pipe';
     EmployeeModalComponent,
     EmployeeEditModalComponent,
     EmployeeDeleteModalComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    GenericModalComponent
   ],
   imports: [
     BrowserModule,

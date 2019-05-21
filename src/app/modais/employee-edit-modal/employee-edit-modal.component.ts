@@ -3,6 +3,7 @@ import { EmployeeModalComponent } from '../employee-modal/employee-modal.compone
 import { Employee } from 'src/app/entities/employee';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2';
+import { GenericModalComponent } from '../generic-modal/generic-modal.component';
 
 @Component({
   selector: 'app-employee-edit-modal',
@@ -10,32 +11,29 @@ import Swal from 'sweetalert2';
   styleUrls: ['./employee-edit-modal.component.css']
 })
 export class EmployeeEditModalComponent implements OnInit {
- 
+
   @Output()
   onSubmit: EventEmitter<Employee> = new EventEmitter<Employee>();
 
   @Input()
   employee: Employee;
 
-  constructor(private element: ElementRef) { }
+  @ViewChild(GenericModalComponent)
+  genericModal: GenericModalComponent;
+
+  constructor() { }
 
   ngOnInit() {
   }
 
   showModal() {
-    const divModal = this.getDivModal();
-    $(divModal).show(); //utilizar esse trecho de código
+    this.genericModal.showModal();
   }
 
   closeModal() {
-    const divModal = this.getDivModal();
-    $(divModal).hide();
+    this.genericModal.closeModal();
   }
 
-  private getDivModal(): HTMLElement {
-    const nativeElement = this.element.nativeElement;
-    return nativeElement.firstChild.firstChild as HTMLElement;
-  }
 
   private editEmployee(event) {
     const copy = Object.assign({}, this.employee);

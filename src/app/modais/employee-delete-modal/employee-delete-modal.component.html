@@ -1,24 +1,20 @@
-<div class="modal"  tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Deletar Empregado</h5>
-          <button type="button" (click)='closeModal()' class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Deseja excluir o Funcionario {{ employee?.name }}
-        </div>
-          <!-- FORM -->
-        <div class="modal-header">
-        </div>  
-        <div class="modal-footer">
-          <div class="form-group">
-            <button class="btn btn-primary" (click)="closeModal()">Voltar</button>
-            <button class="btn btn-danger" (click)="destroy(employee)">Deletar</button>
-          </div>
-        </div>
-      </div>
+<app-generic-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Deletar Empregado</h5>
+    <button type="button" (click)='closeModal()' class="close" data-dismiss="modal" aria-label="Fechar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Deseja excluir o Funcionario {{ employee?.name }}
+  </div>
+  <!-- FORM -->
+  <div class="modal-header">
+  </div>
+  <div class="modal-footer">
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="closeModal()">Voltar</button>
+      <button class="btn btn-danger" (click)="destroy(employee)">Deletar</button>
     </div>
   </div>
+</app-generic-modal>

@@ -1,8 +1,9 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Employee } from 'src/app/entities/employee';
 
 import * as $ from 'jquery';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { GenericModalComponent } from '../generic-modal/generic-modal.component';
 
 @Component({
   selector: 'app-employee-delete-modal',
@@ -14,26 +15,22 @@ export class EmployeeDeleteModalComponent implements OnInit {
   @Input()
   employee: Employee;
 
+  @ViewChild(GenericModalComponent)
+  genericModal: GenericModalComponent;
+
   employeeToDelete: Employee;
 
-  constructor(private element: ElementRef, private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
 
   showModal() {
-    const divModal = this.getDivModal();
-    $(divModal).show(); //utilizar esse trecho de código
+    this.genericModal.showModal();
   }
 
   closeModal() {
-    const divModal = this.getDivModal();
-    $(divModal).hide();
-  }
-
-  private getDivModal(): HTMLElement {
-    const nativeElement = this.element.nativeElement;
-    return nativeElement.firstChild as HTMLElement;
+    this.genericModal.closeModal();
   }
 
   destroy(employee) {
